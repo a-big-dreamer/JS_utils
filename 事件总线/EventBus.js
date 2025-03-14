@@ -30,13 +30,7 @@ class EventBus {
 
     off(event, handler) {
         const handlers = this.listeners.get(event)
-        if (!handlers) return
-        handlers.forEach(_handler => {
-            if (_handler === handler) {
-                handlers.delete(handler)
-                return
-            }
-        })
+        if (handlers) handlers.delete(handler)
     }
 
     offs(events, handler) {
